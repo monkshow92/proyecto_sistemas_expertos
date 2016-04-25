@@ -1,0 +1,10 @@
+nombre base= dbexpertos
+tabla de usario=users
+{
+	"_id" : ObjectId("570f4c5470010f24153c986a"), ---------ue se crea automaticamente
+	"username" : "keylor", -------------nombre de usuario
+	"email" : "keylor@madrid.com", ------- email del del usaruio o aspirante
+	"user" : "Empresa",--------tipo empresa
+	"pass" : "",-------------password del usario
+	date_new" : "2016-04-14 09:52:52"-------- fecha en la que se creo el nuevo usuario
+}
