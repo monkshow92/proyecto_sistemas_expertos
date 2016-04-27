@@ -5,7 +5,7 @@
        <meta charset="UTF-8">
         <link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <title>Registro</title>
         <?php include 'php/navbar.php';?>
     </head>
@@ -17,14 +17,14 @@
                     <hgroup class="text-info">
                         <h4 class="text-info">Registrate</h4>
                         <h6 class="text-info">Las contrasenas deben tener un minimo de 6 carateres</h6>
-                        
+
                     </hgroup>
                     <form action="php/registroP.php" method="post" name="registro">
                         <fieldset class="form-group">
                             <!-- etiqueta para guardar nombre del nuevo usuario-->
                             <label for="formGroupExampleInput">Usuario</label>
                              <input type="text" name="usuario" class="form-control" id="usuario" placeholder="Ingrese el nombre de usuario" pattern="^([a-zA-Z]+[0-9]{0,4}){4,12}$" required title="Nombre de usuario">
-                        </fieldset> 
+                        </fieldset>
                         <fieldset class="form-group-sm">
                             <!-- Select para guardar el tipo de usuario-->
                         <label for="seleccionarUsuario">Tipo Usuario</label>
@@ -45,7 +45,7 @@
                     </fieldset>
                     <fieldset class="form-group">
                         <!-- caja para guardar la confirmacion de la contrasena-->
-                        <label for="confitm_pass">Confirmar Contrasena</label>
+                        <label for="confirm_pass">Confirmar Contrasena</label>
                         <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="Ingrese los dos nombres">
                     </fieldset>
                     <input class="btn btn-primary" type="submit" value="Registrar" >

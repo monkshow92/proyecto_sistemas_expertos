@@ -3,7 +3,7 @@ $temp=FALSE;
 if(!empty($_POST)){
     if(isset($_POST['usuario'])&&isset($_POST['tipoUsuario']) && isset($_POST['email'])
         && isset($_POST['password'])&& isset($_POST['confirm_password'])){
-        include_once 'conexion.php';//aqui tener cuidado por si no hace lo que se necesita cambiar a solo include
+        include 'conexion.php';//aqui tener cuidado por si no hace lo que se necesita cambiar a solo include
        $collection=new MongoCollection($db,'users');
        $emailquery=array('email'=>$_POST['email']);
        $userquery=array('username'=>$_POST['usuario']);
@@ -27,12 +27,25 @@ if(!empty($_POST)){
        }
 
     }//aqui terminar el if de validacion si existe
-    
+
 }//aqui termina el primer if
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 //pueda que me tire un error aqui
+?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="3;url=../login.php" />
+    <title>Registro</title>
+  </head>
+  <body>
+
+  </body>
+</html>

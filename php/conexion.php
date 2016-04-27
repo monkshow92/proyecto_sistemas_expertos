@@ -1,7 +1,4 @@
 <?php
-$conexion=new MongoClient();
-$db=$conexion->selectDB('dbexpertos');
+  $conexion=new MongoClient();
+  $db=$conexion->selectDB('dbexpertos');
 ?>
-
-
-

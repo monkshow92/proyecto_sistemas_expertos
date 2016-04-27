@@ -5,7 +5,7 @@
        <meta charset="UTF-8">
         <link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <title>Registro</title>
         <?php include 'php/navbar.php';?>
     </head>
@@ -17,7 +17,7 @@
                     <hgroup class="text-info">
                         <h4 class="text-info">Ingresa </h4>
                         <h6 class="text-info">ingrese su usuario y contrasena: <a href="./registro.php">Registrate</a> si aun no tienes una cuenta</h6>
-                        
+
                     </hgroup>
                     <form action="php/loginP.php" method="post" name="login" >
                         <fieldset class="form-group">
@@ -40,5 +40,4 @@
         </div>
 <!--        <script src="javascript/validar_login.js" ></script>-->
     </body>
-</html>    
-
+</html>

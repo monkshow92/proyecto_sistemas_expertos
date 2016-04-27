@@ -1,7 +1,7 @@
 <?php
 if(!empty($_POST)){
     $entrar=FALSE;
-    if(isset($_POST['usuario']) && isset($_POST['password'])){
+    if(isset($_POST['usuario']) and isset($_POST['password'])){
         include 'conexion.php';
         $collection=new MongoCollection($db,'users');
         //$userquery=array('username'$_POST['usuario']);

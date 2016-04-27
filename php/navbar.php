@@ -6,7 +6,7 @@
     <li class="nav-item">
         <a class="nav-link active" href="./">INICIO</a>
     </li>
-    
+
   <!--  <li class="nav-item">
     <a class="nav-link disabled" href="#">Disabled</a>
   </li>-->
@@ -22,6 +22,9 @@
         <a class="nav-link" href="php/salir.php">LOGOUT</a>
        </li>
     <?php endif;?>
+    <li class="nav-item">
+      <a class="nav-link" href="./about.php">ACERCA DE</a>
+    </li>
     </ul>
-    
+
 </nav>
