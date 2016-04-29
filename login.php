@@ -33,6 +33,7 @@
                         <input class="btn btn-primary" type="submit" value="Ingresar" ><br>
                         <p class="text-danger" name="mensaje"></p>
                     </form>
+                    <h4><a href="recuperarPass.php">Olvido su contrase&ntilde;a</a></h2>
                 </div>
                 <div class="col-sm-4 "></div>
                 <div class="col-sm-3 "></div>

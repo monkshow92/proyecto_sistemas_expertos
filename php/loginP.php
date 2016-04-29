@@ -1,7 +1,7 @@
 <?php
 if(!empty($_POST)){
     $entrar=FALSE;
-    if(isset($_POST['usuario']) and isset($_POST['password'])){
+    if(isset($_POST['usuario']) && isset($_POST['password'])){
         include 'conexion.php';
         $collection=new MongoCollection($db,'users');
         //$userquery=array('username'$_POST['usuario']);
@@ -10,18 +10,18 @@ if(!empty($_POST)){
       //  $listuser=$collection->find();
         $usuario=$collection->findOne(array('username'=>$user),array('pass'));
         foreach ($usuario as $usuario=>$value) {
-            if($value==$pass){
-                $entrar=True;
+            if($value==base64_encode($pass)){
+                $entrar=True;//base64_decode
 
             }
 
         }
         if($entrar){
             session_start();
-	   $_SESSION["username"]=$_POST['usuario'];
-	   print "<script>;window.location='../home.php';</script>";
+       $_SESSION["username"]=$_POST['usuario'];
+         print "<script>;window.location='../home.php';</script>";
         }else{
-            print "<script>window.location='../login.php';</script>";
+           print "<script>window.location='../login.php';</script>";
         }
     }
 }

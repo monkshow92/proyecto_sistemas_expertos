@@ -48,6 +48,21 @@
                         <label for="confirm_pass">Confirmar Contrasena</label>
                         <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="Ingrese los dos nombres">
                     </fieldset>
+                    <fieldset class="form-group-sm">
+                            <!-- Select para guardar el tipo de usuario-->
+                        <label for="seleccionarUsuario">Elige una pregunta</label>
+                        <select class="form-control" id="pregunta" name="pregunta">
+                           <!--  <option>Elige una pregunta</option> -->
+                            <option>Equipo favorito</option>
+                            <option>Comida Favorita</option>
+                            <option>Nombre de tu Mascota</option>
+                        </select>
+                    </fieldset>
+                   <fieldset class="form-group">
+                            <!-- etiqueta para guardar nombre del nuevo usuario-->
+                        <label for="formGroupExampleInput"></label>
+                        <input type="text" name="respuesta" class="form-control" id="respuesta" placeholder="Ingrese una respuesta" title="Ingresa una respuesta a la pregunta">
+                    </fieldset> 
                     <input class="btn btn-primary" type="submit" value="Registrar" >
                     <p class="text-danger" id="mensaje" ></p>
                     </form>
