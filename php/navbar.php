@@ -9,7 +9,7 @@
     <li class="nav-item">
       <a class="nav-link" href="./about.php">ACERCA DE</a>
     </li>
-    <?php 
+    <?php
      if(isset($_SESSION['username'])){
       $lista=$_SESSION['username'];
          foreach ($lista as $key => $value) {
@@ -20,13 +20,13 @@
          }
          if($tipo=='Aspirante'){?>
          <li class="nav-item" >
-            <a class="nav-link" href="#">MI CURRICULUM</a>
+            <a class="nav-link" href="cv.php">MI CURRICULUM</a>
          </li>
          <li class="nav-item" style="float: right;margin-right: 30px;">
             <a class="nav-link" href="#">MI PERFIL</a>
          </li>
          <?php
-          
+
          }else{?>
              <li class="nav-item">
             <a class="nav-link" href="#">BUSCAR</a>
@@ -57,7 +57,7 @@
         <a class="nav-link" href="php/salir.php">SALIR</a>
        </li>
     <?php endif;?>
-    
+
     </ul>
 
 </nav>
