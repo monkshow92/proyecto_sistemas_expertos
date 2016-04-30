@@ -26,7 +26,10 @@ if(!empty($_POST)){
                'user'=>$_POST['tipoUsuario'],'pass'=>base64_encode($_POST['password']),'pregunta'=>$_POST['pregunta'],'respuesta'=>$_POST['respuesta'],'date_new'=> date('Y-m-d H:i:s'));
             $collection=new MongoCollection($db,'users');
             $collection->insert($newUser);
-            print "<script>alert(\"Registro exitoso. Proceda a logearse\");window.location='../login.php';</script>";
+            $collection=new MongoCollection($db,'entidades');
+            $entidad= array('email' =>$_POST['email']);
+            if($collection->insert($entidad)){
+            print "<script>alert(\"Registro exitoso. Proceda a logearse\");window.location='../login.php';</script>";}
        }
 
     }

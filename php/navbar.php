@@ -22,7 +22,7 @@
          <li class="nav-item" >
             <a class="nav-link" href="cv.php">MI CURRICULUM</a>
          </li>
-         <li class="nav-item" style="float: right;margin-right: 30px;">
+         <li class="nav-item" >
             <a class="nav-link" href="#">MI PERFIL</a>
          </li>
          <?php
@@ -32,8 +32,8 @@
             <a class="nav-link" href="#">BUSCAR</a>
          </li>
           </li>
-         <li class="nav-item" style="float: right;">
-            <a class="nav-link" href="#">PERFIL EMPRESA</a>
+         <li class="nav-item" >
+            <a class="nav-link" href="perfilE.php">PERFIL EMPRESA</a>
          </li>
          <?php
 
@@ -53,8 +53,8 @@
         <a class="nav-link" href="./login.php">ENTRAR</a>
        </li>
      <?php else:?>
-       <li class="nav-item">
-        <a class="nav-link" href="php/salir.php">SALIR</a>
+       <li class="nav-item" style="float: right;margin-right: 30px;">
+        <a class="nav-link" href="php/salir.php" >SALIR</a>
        </li>
     <?php endif;?>
 

@@ -28,7 +28,7 @@
                         <fieldset class="form-group">
                             <!-- etiqueta para guardar nombre del nuevo usuario-->
                             <label for="logear usuario">Contrasena</label>
-                            <input type="password" name="password" class="form-control" id="usuario" placeholder="Ingrese su contrasena">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Ingrese su contrasena">
                         </fieldset>
                         <input class="btn btn-primary" type="submit" value="Ingresar" ><br>
                         <p class="text-danger" name="mensaje"></p>

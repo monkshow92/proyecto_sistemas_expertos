@@ -9,23 +9,28 @@ if(!empty($_POST)){
         $pass=$_POST['password'];
       //  $listuser=$collection->find();
         $usuario=$collection->findOne(array('username'=>$user),array('pass'));
-        foreach ($usuario as $usuario=>$value) {
+        if($usuario!=null){
+            foreach($usuario as $key=>$value) {
             if($value==base64_encode($pass)){
                 $entrar=True;//base64_decode
 
             }
 
         }
+        }else{
+            echo "el ";
+        }
+        
         if($entrar){
             session_start();
-            $usuario=$collection->findOne(array('username'=>$user),array('username','user'));
+            $usuario=$collection->findOne(array('username'=>$user),array('username','user','email'));
             if($usuario!=null){
                 $_SESSION["username"]=$usuario;
             }
             
          print "<script>;window.location='../home.php';</script>";
         }else{
-           print "<script>window.location='../login.php';</script>";
+         //  print "<script>window.location='../login.php';</script>";
         }
     }
 }
