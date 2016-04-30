@@ -2,8 +2,6 @@
 session_start();
 if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 	print "<script>alert(\"Acceso invalido!\");window.location='login.php';</script>";
-}else{
-  include('php/conexion.php');
 }
 ?>
 <!DOCTYPE html>
@@ -15,7 +13,7 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <title>Aspirantes del Perfil</title>
+        <title>Lista de Perfiles para el Aspirante</title>
     </head>
     <body>
         <?php
@@ -23,84 +21,32 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
         ?>
         <div id="container" class="container">
           <h2>
-            Aspirantes al Perfil de Plaza
+          Lista de Perfiles de Plaza
           </h2>
-          <div class="panel panel-default">
-            <div class="panel-heading">Datos del Perfil de Plaza</div>
-            <div class="panel-body">
-          <div class="form-group">
-            <label class="control-label col-sm-3" for="email">Puesto:</label>
-            <div class="col-sm-9">
-              <p class="form-control-static"><?php echo $pp['puesto']; ?></p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-sm-3" for="email">Categoria:</label>
-            <div class="col-sm-9">
-              <p class="form-control-static"><?php echo $pp['categoria']; ?></p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-sm-3" for="email">Nivel Educativo:</label>
-            <div class="col-sm-9">
-              <p class="form-control-static"><?php
-              switch ($pp['nivelEdu']) {
-                case '0':
-                  $nivelEduReq = 'Ninguno';
-                  break;
-                case '1':
-                    $nivelEduReq = 'Primaria';
-                    break;
-                case '2':
-                    $nivelEduReq = 'Secundaria';
-                    break;
-                case '3':
-                    $nivelEduReq = 'Pregrado';
-                    break;
-                case '4':
-                    $nivelEduReq = 'Maestria';
-                    break;
-                case '5':
-                    $nivelEduReq = 'Doctorado';
-                    break;
-                case '6':
-                    $nivelEduReq = 'Post-Doctorado';
-                    break;
-                default:
-
-                  break;
-              }
-              echo $nivelEduReq;
-              ?></p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-sm-3" for="email">Años de Experiencia:</label>
-            <div class="col-sm-9">
-              <p class="form-control-static"><?php echo $pp['edad']; ?></p>
-            </div>
-          </div>
-        </div>
-      </div>
-          <h3>
-            Estos son los aspirantes que aplican para el perfil de plaza.
-          </h3>
+          <p>
+          Aqui podras ver la lista de perfiles de plaza a los que aplicas.
+          </p>
           <table class="table table-condensed table-striped table-bordered table-hover">
-            <title>Aspirantes al Perfil de Plaza</title>
+            <title>Lista de Perfiles de PLaza</title>
             <thead>
               <tr class="info">
-                <td>Nombres</td>
-                <td>Apellidos</td>
+                <td>Puesto</td>
+                <td>Categoria</td>
                 <td>Nivel Educativo</td>
                 <td>Años de Experiencia</td>
-                <td>Ver CV</td>
+                <td>Ver Perfil</td>
               </tr>
             </thead>
             <tbody>
               <?php
+              include('php/conexion.php');
+              $username = $_SESSION["username"];
+            	$id = $username['_id'];
               $cvCol = new MongoCollection($db,'cv');
-              $cursor = $cvCol->find();
-              foreach ($cursor as $cv) {
+              $cv = $cvCol->findOne(array('userId'=>$id));
+            	$ppCol = new MongoCollection($db,'pp');
+              $cursor = $ppCol->find();
+              foreach ($cursor as $pp) {
                 $experiencias = $cv['experiencia'];
 
                 $edadReq = intval($pp['edad']);
@@ -141,11 +87,10 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
                 //del perfil de plaza, entonces aplica para el puesto.
                 if($edad >= $edadReq && $edu >= $eduReq
                   && $cantI >= $cantIReq && $cantH >= $cantHReq){
-                echo "<tr>";
-                echo "<td>" . $cv['nombres'] . "</td>";
-                echo "<td>" . $cv['apellidos'] . "</td>";
-
-                switch ($cv['nivelEdu']) {
+								echo "<tr>";
+                echo "<td>" . $pp['puesto'] . "</td>";
+                echo "<td>" . $pp['categoria'] . "</td>";
+                switch ($pp['nivelEdu']) {
                   case '0':
                     $nivelEdu = 'Ninguno';
                     break;
@@ -168,12 +113,11 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
                       $nivelEdu = 'Post-Doctorado';
                       break;
                   default:
-
                     break;
                 }
                 echo "<td>" . $nivelEdu . "</td>";
-                echo "<td>" . $edad . "</td>";
-                echo "<td><a href=\"verCV.php?ref=" . $cv['userId'] ."\">Ver CV</a></td>";
+                echo "<td>" . $pp['edad'] . "</td>";
+                echo "<td><a href=\"verPerfilDePlaza.php?ref=" . $pp['_id'] ."\">Ver Perfil</a></td>";
                 echo "</tr>";
                 }
               }

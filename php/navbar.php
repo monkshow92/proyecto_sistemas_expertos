@@ -23,7 +23,7 @@
             <a class="nav-link" href="cv.php">MI CURRICULUM</a>
          </li>
          <li class="nav-item" >
-            <a class="nav-link" href="#">MI PERFIL</a>
+            <a class="nav-link" href="listaPerfilesAspirante.php">LISTA DE PERFILES</a>
          </li>
          <?php
 
