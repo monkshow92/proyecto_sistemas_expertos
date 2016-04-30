@@ -3,7 +3,10 @@
 <html>
     <head>
        <meta charset="UTF-8">
-        <link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <!--<link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Registro</title>
@@ -62,7 +65,7 @@
                             <!-- etiqueta para guardar nombre del nuevo usuario-->
                         <label for="formGroupExampleInput"></label>
                         <input type="text" name="respuesta" class="form-control" id="respuesta" placeholder="Ingrese una respuesta" title="Ingresa una respuesta a la pregunta">
-                    </fieldset> 
+                    </fieldset>
                     <input class="btn btn-primary" type="submit" value="Registrar" >
                     <p class="text-danger" id="mensaje" ></p>
                     </form>

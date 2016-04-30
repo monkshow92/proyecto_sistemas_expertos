@@ -3,7 +3,10 @@
 <head>
 	<title>recuperar su contase&ntilde;a</title>
 	<meta charset="utf-8">
-	<link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+	<!--<link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -37,7 +40,7 @@
                         </fieldset>
                         <input class="btn btn-primary" type="submit" value="Enviar" ><br>
                         <p class="text-danger" name="mensaje"></p>
-                      
+
                     </form>
                 </div>
                 <div class="col-sm-4 "></div>

@@ -5,13 +5,17 @@ session_start();
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <!--<link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <title>Inicio</title>
     </head>
     <body>
         <?php
           include('php/navbar.php');
         ?>
+        <div id="container" class="container">
         <h2>
                 Acerca de
             </h2>
@@ -26,5 +30,6 @@ session_start();
         <h3>Objetivo General</h3>
         <p>Ofrecer a las PYMES a nivel nacional e internacional una herramienta que facilite a su departamento de RRHH la gestión y examen de los CV llenados en línea de quienes aplican para las plazas de trabajo que estas empresas oferten.
         </p>
+        </div>
     </body>
 </html>
