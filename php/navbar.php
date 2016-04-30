@@ -28,13 +28,15 @@
          <?php
 
          }else{?>
-             <li class="nav-item">
+           <li class="nav-item" >
+              <a class="nav-link" href="perfilE.php">PERFIL EMPRESA</a>
+           </li>
+          <li class="nav-item">
             <a class="nav-link" href="perfilDePlaza.php">PERFIL DE PLAZA</a>
          </li>
-          </li>
-         <li class="nav-item" >
-            <a class="nav-link" href="perfilE.php">PERFIL EMPRESA</a>
-         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="listaPerfiles.php">LISTA DE PERFILES</a>
+        </li>
          <?php
 
          }

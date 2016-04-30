@@ -132,9 +132,9 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="control-label col-sm-2" for="edad">Edad:</label>
+                    <label class="control-label col-sm-2" for="edad">Años de Experiencia:</label>
                     <div class="col-sm-10">
-                      <input type="number" class="form-control" name="edad" placeholder="Edad"
+                      <input type="number" class="form-control" name="edad" placeholder="Años de Experiencia"
                       value="<?php echo $edad; ?>"/>
                     </div>
                   </div>
