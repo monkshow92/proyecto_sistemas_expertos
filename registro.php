@@ -41,12 +41,12 @@
                         <fieldset class="form-group">
                          <!-- caja para guardar la contrasena-->
                         <label for="pass">Contrasena</label>
-                        <input type="password" name="password" class="form-control" id="password" placeholder="Ingrese los dos nombres">
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Ingrese un password">
                     </fieldset>
                     <fieldset class="form-group">
                         <!-- caja para guardar la confirmacion de la contrasena-->
                         <label for="confirm_pass">Confirmar Contrasena</label>
-                        <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="Ingrese los dos nombres">
+                        <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="Confirme el password">
                     </fieldset>
                     <fieldset class="form-group-sm">
                             <!-- Select para guardar el tipo de usuario-->
