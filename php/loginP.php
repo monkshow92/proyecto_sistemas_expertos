@@ -17,8 +17,6 @@ if(!empty($_POST)){
             }
 
         }
-        }else{
-            echo "el ";
         }
         
         if($entrar){
@@ -30,7 +28,7 @@ if(!empty($_POST)){
             
          print "<script>;window.location='../home.php';</script>";
         }else{
-         //  print "<script>window.location='../login.php';</script>";
+          print "<script>window.location='../login.php';</script>";
         }
     }
 }
