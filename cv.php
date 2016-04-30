@@ -2,6 +2,22 @@
 session_start();
 if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 	print "<script>alert(\"Acceso invalido!\");window.location='login.php';</script>";
+}else{
+	include 'php/conexion.php';
+	$usersCol=new MongoCollection($db,'users');
+  $usuario=$usersCol->findOne(array('username'=>$_SESSION["username"]),array('email','_id'));
+	$email = $usuario['email'];
+	$id = $usuario['_id'];
+	$cvCol = new MongoCollection($db,'cv');
+	$cv = $cvCol->findOne(array('userId'=>$id));
+	if($cv != null){
+		$nombres = $cv['nombres'];
+	  $apellidos = $cv['apellidos'];
+	  $direccion  = $cv['direccion'];
+	  $telFijo = $cv['telFijo'];
+	  $movil = $cv['movil'];
+	  $fechaNac = $cv['fechaNac'];
+	}
 }
 ?>
 <!DOCTYPE html>
@@ -26,51 +42,58 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
         Use el formulario siguiente para crear / editar su curriculum vitae.
         </p>
         <div id="container" class="container embed-responsive embed-responsive-16by9">
-            <form class="form-horizontal" action="php/cvP.php" method="post" role="form">
+            <form class="form-horizontal" action="php/cvP.php" method="POST">
               <div class="panel panel-primary">
                 <div class="panel-heading">Datos Personales</div>
                 <div class="panel-body">
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="nombres">Nombres:</label>
 										<div class="col-sm-10">
-                      <input type="text" class="form-control" id="nombres" placeholder="Nombres"/>
+                      <input type="text" class="form-control" name="nombres" placeholder="Nombres"
+											value="<?php echo $nombres; ?>"/>
 										</div>
                   </div>
 									<div class="form-group">
                     <label class="control-label col-sm-2" for="apellidos">Apellidos:</label>
 										<div class="col-sm-10">
-                    	<input type="text" class="form-control" id="apellidos" placeholder="Apellidos"/>
+                    	<input type="text" class="form-control" name="apellidos" placeholder="Apellidos"
+											value="<?php echo $apellidos; ?>"/>
 										</div>
 									</div>
 									<div class="form-group">
                     <label class="control-label col-sm-2" for="direccion">Direccion:</label>
 										<div class="col-sm-10">
-                    	<textarea rows="5" class="form-control" id="direccion">
+                    	<textarea rows="5" class="form-control" name="direccion">
+												<?php echo $direccion; ?>
 											</textarea>
 										</div>
 									</div>
 									<div class="form-group">
                     <label class="control-label col-sm-2" for="email">Email:</label>
 										<div class="col-sm-10">
-                    	<input type="text" class="form-control" id="email" placeholder="Email"/>
+                    	<input type="text" class="form-control" name="email" placeholder="Email"
+											value="<?php echo $email; ?>"/>
 										</div>
 									</div>
 									<div class="form-group">
                     <label class="control-label col-sm-2" for="telFijo">Telefono Fijo:</label>
 										<div class="col-sm-10">
-                    	<input type="text" class="form-control" id="telFijo" placeholder="Apellidos"/>
+                    	<input type="text" class="form-control" name="telFijo" placeholder="Telefono Fijo"
+											value="<?php echo $telFijo; ?>"/>
 										</div>
 									</div>
 									<div class="form-group">
                     <label class="control-label col-sm-2" for="movil">Telefono Movil:</label>
 										<div class="col-sm-10">
-                    	<input type="text" class="form-control" id="movil" placeholder="Telefono Movil"/>
+                    	<input type="text" class="form-control" name="movil" placeholder="Telefono Movil"
+											value="<?php echo $movil; ?>"/>
 										</div>
 									</div>
 									<div class="form-group">
                     <label class="control-label col-sm-2" for="fechaNac">Fecha de Nacimiento:</label>
 										<div class="col-sm-10">
-                    	<input type="date" class="form-control" id="fechaNac" placeholder="Fecha de Nacimiento"/>
+                    	<input type="date" class="form-control" name="fechaNac" placeholder="Fecha de Nacimiento"
+											value="<?php echo $fechaNac; ?>"/>
 										</div>
 									</div>
                 </div>
