@@ -39,6 +39,7 @@
                 <div class="col-sm-3 "></div>
             </div>
         </div>
-<!--        <script src="javascript/validar_login.js" ></script>-->
-    </body>
+        <script src="javascript/validar_login.js" ></script>
+
+</body>
 </html>

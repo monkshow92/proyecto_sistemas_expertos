@@ -4,14 +4,14 @@ with(document.login){
 		ok = true;
 		if(ok && usuario.value==""){
 			ok=false;
-                       // document.getElementsByName('mensaje').innerHTML="Ingrese un nombre de usuario";
+            document.getElementsByName('mensaje').innerHTML="Ingrese un nombre de usuario";
 			usuario.focus();
                          
 		}
 		if(ok && password.value==""){
 			ok=false;
 			password.focus();
-                        //document.getElementsByName('mensaje').innerHTML="Ingrese una contasena";
+            document.getElementsByName('mensaje').innerHTML="Ingrese una contasena";
 		}
 		if(ok){ submit(); }
 	}

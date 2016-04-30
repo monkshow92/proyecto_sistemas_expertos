@@ -18,7 +18,11 @@ if(!empty($_POST)){
         }
         if($entrar){
             session_start();
-       $_SESSION["username"]=$_POST['usuario'];
+            $usuario=$collection->findOne(array('username'=>$user),array('username','user'));
+            if($usuario!=null){
+                $_SESSION["username"]=$usuario;
+            }
+            
          print "<script>;window.location='../home.php';</script>";
         }else{
            print "<script>window.location='../login.php';</script>";
