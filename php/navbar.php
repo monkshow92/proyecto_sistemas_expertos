@@ -29,7 +29,7 @@
 
          }else{?>
              <li class="nav-item">
-            <a class="nav-link" href="#">BUSCAR</a>
+            <a class="nav-link" href="perfilDePlaza.php">PERFIL DE PLAZA</a>
          </li>
           </li>
          <li class="nav-item" >
