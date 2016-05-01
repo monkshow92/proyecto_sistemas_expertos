@@ -15,14 +15,21 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
   $usuario=$usersCol->findOne(array('username'=>$username),array('_id'));*/
 	$id = $username['_id'];//$usuario['_id'];
 	$ppCol = new MongoCollection($db,'pp');
+  
   if($idPerfil == ""){
     $pp = array('puesto' => $puesto, 'categoria' => $categoria,
       'nivelEdu' => $nivelEdu, 'edad' => $edad, 'userId' => $id);
     $ppCol->insert($pp);
     $idPerfil = $pp['_id'];
   }else{
+    if($idPerfil != null){
     $pp = array('_id' => new MongoId($idPerfil),'puesto' => $puesto, 'categoria' => $categoria,
       'nivelEdu' => $nivelEdu, 'edad' => $edad, 'userId' => $id);
+    }else{
+    $pp = array('puesto' => $puesto, 'categoria' => $categoria,
+      'nivelEdu' => $nivelEdu, 'edad' => $edad, 'userId' => $id);
+      
+    }
     $ppCol->save($pp);
   }
   print "<script>alert(\"Perfil de Plaza Guardado!\");</script>";

@@ -25,7 +25,7 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--<link href="../bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">-->
+        <link href="../bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -154,6 +154,7 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 
 										<?php
 										if($pp != null){
+                                            if(isset($pp['idiomas'])){
 											$idiomas = $pp['idiomas'];
 											foreach ($idiomas as $idioma) {
 												echo "<tr>";
@@ -175,6 +176,7 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 												echo "<td>" . $nivelIdioma . "</td>";
 												echo '</tr>';
 											}
+                                            }
 										}
 										 ?>
 									</table>
@@ -192,12 +194,14 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 										</tr>
 										<?php
 										if($pp != null){
+                                            if(isset($pp['habilidades'])){
 											$habilidades = $pp['habilidades'];
 											foreach ($habilidades as $habilidad) {
 												echo "<tr>";
 												echo "<td>" . $habilidad . "</td>";
 												echo '</tr>';
 											}
+                                          }
 										}
 										 ?>
 									</table>

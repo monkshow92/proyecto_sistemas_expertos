@@ -3,6 +3,7 @@ session_start();
 if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 	print "<script>alert(\"Acceso invalido!\");window.location='login.php';</script>";
 }else{
+  if(isset($_GET['ref'])){
 	$idPerfil = $_GET['ref'];
 	if($idPerfil != ""){
 		include 'php/conexion.php';
@@ -13,8 +14,14 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 			$categoria = $pp['categoria'];
 			$nivelEdu = $pp['nivelEdu'];
 			$edad = $pp['edad'];
-		}
+		}else{
+      $puesto = "";
+      $categoria  = "";
+      $nivelEdu  = "";
+      $edad  = "";
+    }
 	}
+}
 
 }
 ?>
@@ -48,7 +55,7 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
                     <label class="control-label col-sm-2" for="puesto">Puesto:</label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control" name="puesto" placeholder="Puesto"
-                      value="<?php echo $puesto; ?>"/>
+                      value="<?php if(isset($puesto)){echo $puesto;} ?>"/>
                     </div>
                   </div>
                   <div class="form-group">
@@ -56,49 +63,49 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
                     <div class="col-sm-10">
                       <select class="form-control" name="categoria">
                         <option value="Banca y Finanzas"
-                        <?php if($categoria == 'Banca y Finanzas'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($categoria)){if($categoria == 'Banca y Finanzas'){ echo ' selected="selected"'; }} ?>
                         >Banca y Finanzas</option>
                         <option value="Administracion"
-                        <?php if($categoria == 'Administracion'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($categoria)){if($categoria == 'Administracion'){ echo ' selected="selected"'; } }?>
                         >Administracion</option>
                         <option value="Ingenieria"
-                        <?php if($categoria == 'Ingenieria'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($categoria)){if($categoria == 'Ingenieria'){ echo ' selected="selected"'; } }?>
                         >Ingenieria</option>
                         <option value="Educacion"
-                        <?php if($categoria == 'Educacion'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($categoria)){if($categoria == 'Educacion'){ echo ' selected="selected"'; } }?>
                         >Educacion</option>
                         <option value="Recursos Humanos"
-                        <?php if($categoria == 'Recursos Humanos'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($categoria)){if($categoria == 'Recursos Humanos'){ echo ' selected="selected"'; } }?>
                         >Recursos Humanos</option>
                         <option value="Mantenimiento"
-                        <?php if($categoria == 'Mantenimiento'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($categoria)){if($categoria == 'Mantenimiento'){ echo ' selected="selected"'; } }?>
                         >Mantenimiento</option>
                         <option value="Mercadeo"
-                        <?php if($categoria == 'Mercadeo'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($categoria)){if($categoria == 'Mercadeo'){ echo ' selected="selected"'; } }?>
                         >Mercadeo</option>
                         <option value="Ventas"
-                        <?php if($categoria == 'Ventas'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($categoria)){if($categoria == 'Ventas'){ echo ' selected="selected"';} } ?>
                         >Ventas</option>
                         <option value="Tecnico"
-                        <?php if($categoria == 'Tecnico'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($categoria)){if($categoria == 'Tecnico'){ echo ' selected="selected"'; } }?>
                         >Tecnico</option>
                         <option value="Transporte"
-                        <?php if($categoria == 'Transporte'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($categoria)){if($categoria == 'Transporte'){ echo ' selected="selected"'; } }?>
                         >Transporte</option>
                         <option value="Salud"
-                        <?php if($categoria == 'Salud'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($categoria)){if($categoria == 'Salud'){ echo ' selected="selected"'; } }?>
                         >Salud</option>
                         <option value="Gobierno"
-                        <?php if($categoria == 'Gobierno'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($categoria)){if($categoria == 'Gobierno'){ echo ' selected="selected"'; } }?>
                         >Gobierno</option>
                         <option value="Construccion"
-                        <?php if($categoria == 'Construccion'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($categoria)){if($categoria == 'Construccion'){ echo ' selected="selected"'; } }?>
                         >Construccion</option>
                         <option value="Relaciones Publicas"
-                        <?php if($categoria == 'Relaciones Publicas'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($categoria)){if($categoria == 'Relaciones Publicas'){ echo ' selected="selected"'; } }?>
                         >Relaciones Publicas</option>
                         <option value="Comunicaciones"
-                        <?php if($categoria == 'Comunicaciones'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($categoria)){if($categoria == 'Comunicaciones'){ echo ' selected="selected"'; } }?>
                         >Comunicaciones</option>
                       </select>
                     </div>
@@ -108,25 +115,25 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
                     <div class="col-sm-10">
                       <select name="nivelEdu" class="form-control" >
                         <option value="0"
-                        <?php if($nivelEdu == '0'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($nivelEdu)){if($nivelEdu == '0'){ echo ' selected="selected"'; } }?>
                         >Ninguno</option>
                         <option value="1"
-                        <?php if($nivelEdu == '1'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($nivelEdu)){if($nivelEdu == '1'){ echo ' selected="selected"'; } }?>
                         >Primaria</option>
                         <option value="2"
-                        <?php if($nivelEdu == '2'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($nivelEdu)){if($nivelEdu == '2'){ echo ' selected="selected"'; } }?>
                         >Secundaria</option>
                         <option value="3"
-                        <?php if($nivelEdu == '3'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($nivelEdu)){if($nivelEdu == '3'){ echo ' selected="selected"'; } }?>
                         >Pregrado</option>
                         <option value="4"
-                        <?php if($nivelEdu == '4'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($nivelEdu)){if($nivelEdu == '4'){ echo ' selected="selected"'; } }?>
                         >Maestria</option>
                         <option value="5"
-                        <?php if($nivelEdu == '5'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($nivelEdu)){if($nivelEdu == '5'){ echo ' selected="selected"'; } }?>
                         >Doctorado</option>
                         <option value="6"
-                        <?php if($nivelEdu == '6'){ echo ' selected="selected"'; } ?>
+                        <?php if(isset($nivelEdu)){if($nivelEdu == '6'){ echo ' selected="selected"'; } }?>
                         >Post-Doctorado</option>
                       </select>
                     </div>
@@ -135,12 +142,12 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
                     <label class="control-label col-sm-2" for="edad">Años de Experiencia:</label>
                     <div class="col-sm-10">
                       <input type="number" class="form-control" name="edad" placeholder="Años de Experiencia"
-                      value="<?php echo $edad; ?>"/>
+                      value="<?php if(isset($edad)){echo $edad;} ?>"/>
                     </div>
                   </div>
                 </div>
               </div>
-						  <input type="hidden" value="<?php echo $idPerfil; ?>" name="ref" />
+						  <input type="hidden" value="<?php if(isset($idPerfil)){echo $idPerfil; }?>" name="ref" />
 							<input type="submit" class="btn btn-primary" value="Guardar Perfil" />
 							<input type="reset" class="btn btn-primary" value="Limpiar" />
             </form>
@@ -184,8 +191,9 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 										</tr>
 
 										<?php
-										if($pp != null){
-											$idiomas = $pp['idiomas'];
+										if(isset($pp)){if($pp != null){
+                      if(isset($pp['idiomas'])){
+                      $idiomas = $pp['idiomas'];
 											foreach ($idiomas as $idioma) {
 												echo "<tr>";
 												echo "<td>" . $idioma['idioma'] . "</td>";
@@ -206,7 +214,9 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 												echo "<td>" . $nivelIdioma . "</td>";
 												echo '</tr>';
 											}
+                    }
 										}
+                  }
 										 ?>
 									</table>
 								</div>
@@ -241,14 +251,18 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 											<th>Habilidad</th>
 										</tr>
 										<?php
+                    if(isset($pp)){
 										if($pp != null){
+                      if(isset($pp['habilidades'])){
 											$habilidades = $pp['habilidades'];
 											foreach ($habilidades as $habilidad) {
 												echo "<tr>";
 												echo "<td>" . $habilidad . "</td>";
 												echo '</tr>';
 											}
+                    }
 										}
+                  }
 										 ?>
 									</table>
 								</div>

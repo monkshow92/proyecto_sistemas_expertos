@@ -51,9 +51,11 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 
                 $edadReq = intval($pp['edad']);
                 $edad = 0;
+                if(isset($experiencias)){
                 foreach ($experiencias as $experiencia) {
                   $edad = $edad + intval($experiencia['duracion']);
                 }
+              }
                 $edu = intval($cv['nivelEdu']);
                 $eduReq = intval($pp['nivelEdu']);
 
@@ -62,12 +64,14 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
                 $cantIReq = count($idiomasReq);
                 $cantI = 0;
                 foreach ($idiomasReq as $iReq) {
+                  if(isset($idiomas)){
                    foreach ($idiomas as $i) {
                      if($i['idioma'] == $iReq['idioma'] &&
                         intval($i['nivelIdioma']) >= intval($iReq['nivelIdioma']) ){
                           $cantI = $cantI + 1;
                         }
                    }
+                 }
                 }
 
                 $habilidadesReq = $pp['habilidades'];
@@ -75,11 +79,13 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
                 $cantHReq = count($habilidadesReq);
                 $cantH = 0;
                 foreach ($habilidadesReq as $hReq) {
+                  if(isset($habilidades)){
                   foreach ($habilidades as $h) {
                     if($h == $hReq){
                       $cantH = $cantH + 1;
                     }
                   }
+                }
                 }
 
                 //aqui esta la regla de inferencia:

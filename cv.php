@@ -25,9 +25,19 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 		$fechaInicio = $cv['fechaInicio'];
 		$fechaFin = $cv['fechaFin'];
 	}else{
-		$fechaNac = getdate();
-		$fechaInicio = getdate();
-		$fechaFin = getdate();
+		$nombres = "";
+	  $apellidos = "";
+	  $direccion  = "";
+	  $telFijo = "";
+	  $movil = "";
+		$estadoCivil = "";
+
+		$nivelEdu = "";
+		$titulo = "";
+		$institucion = "";
+		$fechaNac = "";
+		$fechaInicio = "";
+		$fechaFin = "";
 	}
 }
 ?>
@@ -61,48 +71,48 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
                     <label class="control-label col-sm-2" for="nombres">Nombres:</label>
 										<div class="col-sm-10">
                       <input type="text" class="form-control" name="nombres" placeholder="Nombres"
-											value="<?php echo $nombres; ?>"/>
+											value="<?php if(isset($nombres)){echo $nombres; }?>"/>
 										</div>
                   </div>
 									<div class="form-group">
                     <label class="control-label col-sm-2" for="apellidos">Apellidos:</label>
 										<div class="col-sm-10">
                     	<input type="text" class="form-control" name="apellidos" placeholder="Apellidos"
-											value="<?php echo $apellidos; ?>"/>
+											value="<?php if(isset($apellidos)){echo $apellidos; }?>"/>
 										</div>
 									</div>
 									<div class="form-group">
                     <label class="control-label col-sm-2" for="direccion">Direccion:</label>
 										<div class="col-sm-10">
-                    	<textarea rows="5" class="form-control" name="direccion"><?php echo $direccion; ?></textarea>
+                    	<textarea rows="5" class="form-control" name="direccion"><?php if(isset($direccion)){echo $direccion; }?></textarea>
 										</div>
 									</div>
 									<div class="form-group">
                     <label class="control-label col-sm-2" for="email">Email:</label>
 										<div class="col-sm-10">
                     	<input type="text" class="form-control" name="email" placeholder="Email"
-											value="<?php echo $email; ?>"/>
+											value="<?php if(isset($email)){echo $email; }?>"/>
 										</div>
 									</div>
 									<div class="form-group">
                     <label class="control-label col-sm-2" for="telFijo">Telefono Fijo:</label>
 										<div class="col-sm-10">
                     	<input type="text" class="form-control" name="telFijo" placeholder="Telefono Fijo"
-											value="<?php echo $telFijo; ?>"/>
+											value="<?php if(isset($telFijo)){echo $telFijo; }?>"/>
 										</div>
 									</div>
 									<div class="form-group">
                     <label class="control-label col-sm-2" for="movil">Telefono Movil:</label>
 										<div class="col-sm-10">
                     	<input type="text" class="form-control" name="movil" placeholder="Telefono Movil"
-											value="<?php echo $movil; ?>"/>
+											value="<?php if(isset($movil)){echo $movil; }?>"/>
 										</div>
 									</div>
 									<div class="form-group">
                     <label class="control-label col-sm-2" for="fechaNac">Fecha de Nacimiento:</label>
 										<div class="col-sm-10">
                     	<input type="date" class="form-control" name="fechaNac" placeholder="Fecha de Nacimiento"
-											value="<?php echo $fechaNac; ?>"/>
+											value="<?php if(isset($fechaNac)){echo $fechaNac; }?>"/>
 										</div>
 									</div>
 									<div class="form-group">
@@ -232,6 +242,7 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 
 										<?php
 										if($cv != null){
+											if(isset($cv['idiomas'])){
 											$idiomas = $cv['idiomas'];
 											foreach ($idiomas as $idioma) {
 												echo "<tr>";
@@ -253,6 +264,7 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 												echo "<td>" . $nivelIdioma . "</td>";
 												echo '</tr>';
 											}
+										}
 										}
 										 ?>
 									</table>
@@ -313,6 +325,7 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 
 										<?php
 										if($cv != null){
+											if(isset($cv['experiencia'])){
 											$experiencias = $cv['experiencia'];
 											foreach ($experiencias as $experiencia) {
 												echo "<tr>";
@@ -324,6 +337,7 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 												echo "<td>" . $experiencia['duracion'] . "</td>";
 												echo '</tr>';
 											}
+										}
 										}
 										 ?>
 									</table>
@@ -359,12 +373,14 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 										</tr>
 										<?php
 										if($cv != null){
+											if(isset($cv['habilidades'])){
 											$habilidades = $cv['habilidades'];
 											foreach ($habilidades as $habilidad) {
 												echo "<tr>";
 												echo "<td>" . $habilidad . "</td>";
 												echo '</tr>';
 											}
+										}
 										}
 										 ?>
 									</table>

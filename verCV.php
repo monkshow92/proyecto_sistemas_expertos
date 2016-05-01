@@ -25,9 +25,20 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 		$fechaInicio = $cv['fechaInicio'];
 		$fechaFin = $cv['fechaFin'];
 	}else{
-		$fechaNac = getdate();
-		$fechaInicio = getdate();
-		$fechaFin = getdate();
+		$nombres = "";
+	  $apellidos = "";
+	  $direccion  = "";
+	  $telFijo = "";
+	  $movil = "";
+	  $fechaNac = "";
+		$estadoCivil = "";
+
+		$nivelEdu = "";
+		$titulo = "";
+		$institucion = "";
+		$fechaNac = "";
+		$fechaInicio = "";
+		$fechaFin = "";
 	}
 }
 ?>
@@ -193,6 +204,7 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 
 										<?php
 										if($cv != null){
+											if(isset($cv['idiomas'])){
 											$idiomas = $cv['idiomas'];
 											foreach ($idiomas as $idioma) {
 												echo "<tr>";
@@ -214,6 +226,7 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 												echo "<td>" . $nivelIdioma . "</td>";
 												echo '</tr>';
 											}
+										}
 										}
 										 ?>
 									</table>
@@ -237,6 +250,7 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 
 										<?php
 										if($cv != null){
+											if(isset($cv['experiencia'])){
 											$experiencias = $cv['experiencia'];
 											foreach ($experiencias as $experiencia) {
 												echo "<tr>";
@@ -248,6 +262,7 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 												echo "<td>" . $experiencia['duracion'] . "</td>";
 												echo '</tr>';
 											}
+										  }
 										}
 										 ?>
 									</table>
@@ -265,12 +280,14 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 										</tr>
 										<?php
 										if($cv != null){
+											if(isset($cv['habilidades'])){
 											$habilidades = $cv['habilidades'];
 											foreach ($habilidades as $habilidad) {
 												echo "<tr>";
 												echo "<td>" . $habilidad . "</td>";
 												echo '</tr>';
 											}
+										  }
 										}
 										 ?>
 									</table>

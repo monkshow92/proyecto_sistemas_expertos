@@ -4,6 +4,9 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
 	print "<script>alert(\"Acceso invalido!\");window.location='login.php';</script>";
 }else{
   include('php/conexion.php');
+  $idPerfil = new MongoId($_GET['ref']);
+  $ppCol = new MongoCollection($db,'pp');
+  $pp = $ppCol->findOne(array('_id'=>$idPerfil));
 }
 ?>
 <!DOCTYPE html>
@@ -31,19 +34,20 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
           <div class="form-group">
             <label class="control-label col-sm-3" for="email">Puesto:</label>
             <div class="col-sm-9">
-              <p class="form-control-static"><?php echo $pp['puesto']; ?></p>
+              <p class="form-control-static"><?php if(isset($pp['puesto'])){echo $pp['puesto']; }?></p>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-sm-3" for="email">Categoria:</label>
             <div class="col-sm-9">
-              <p class="form-control-static"><?php echo $pp['categoria']; ?></p>
+              <p class="form-control-static"><?php if(isset($pp['categoria'])){echo $pp['categoria']; }?></p>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-sm-3" for="email">Nivel Educativo:</label>
             <div class="col-sm-9">
               <p class="form-control-static"><?php
+              if(isset($pp['nivelEdu'])){
               switch ($pp['nivelEdu']) {
                 case '0':
                   $nivelEduReq = 'Ninguno';
@@ -71,13 +75,14 @@ if(!isset($_SESSION["username"]) || $_SESSION["username"]==null){
                   break;
               }
               echo $nivelEduReq;
+            }
               ?></p>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-sm-3" for="email">Años de Experiencia:</label>
             <div class="col-sm-9">
-              <p class="form-control-static"><?php echo $pp['edad']; ?></p>
+              <p class="form-control-static"><?php if(isset($pp['edad'])){echo $pp['edad']; }?></p>
             </div>
           </div>
         </div>
